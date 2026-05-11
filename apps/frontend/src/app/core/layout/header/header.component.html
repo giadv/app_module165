@@ -1,0 +1,10 @@
+<header>
+    <div id="title">LIGHT POLLUTION VISUALIZER</div>
+    <div>
+        <mat-button-toggle-group [value]="initialViewType" (valueChange)="onViewTypeChange($event)">
+            <mat-button-toggle value="map">Map</mat-button-toggle>
+            <mat-button-toggle value="board">Board</mat-button-toggle>
+            <mat-button-toggle value="timeline">Timeline</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+</header>

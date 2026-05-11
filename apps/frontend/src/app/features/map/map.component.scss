@@ -1,0 +1,73 @@
+:host {
+    display: block;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+#popup-container {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    mat-card {
+        z-index: 1000;
+        width: 300px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border: solid 1px #f7daef;
+        border-top: none;
+    }
+}
+
+#year-selector {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 1000;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+    background-color: var(--mat-sys-surface);
+}
+
+#legend {
+    position: absolute;
+    bottom: 24px;
+    right: 12px;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    line-height: 1.6;
+    backdrop-filter: blur(4px);
+
+    .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .legend-color {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border-radius: 3px;
+        flex-shrink: 0;
+    }
+}
+
+.spinner-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--mat-sys-surface);
+    z-index: 1000;
+}

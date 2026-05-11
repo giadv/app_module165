@@ -1,0 +1,29 @@
+:host {
+    display: flex;
+    padding: 20px 50px;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+#timeline-value {
+    margin: 20px 0;
+    font-size: 2rem;
+}
+
+mat-slider {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#tables {
+    flex: 1;
+    display: flex;
+    gap: 50px;
+    width: 100%;
+
+    table {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+}

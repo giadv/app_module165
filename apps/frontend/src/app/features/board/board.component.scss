@@ -1,0 +1,31 @@
+:host {
+    display: block;
+    padding: 50px 70px;
+    height: 100%;
+    max-height: 100vh;
+}
+
+cdk-virtual-scroll-viewport {
+    height: 100%;
+    overflow: auto;
+
+    table {
+        table-layout: fixed;
+    }
+}
+
+.mat-column-no {
+    width: 32px;
+    border-right: 1px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+}
+
+.mat-column-year {
+    width: 200px;
+    padding-left: 30px;
+}
+
+.mat-column-value {
+    width: 200px;
+}

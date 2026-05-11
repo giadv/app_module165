@@ -1,32 +1,26 @@
 {
-  "name": "app-module165",
-  "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
-  },
-  "private": true,
-  "packageManager": "npm@11.11.1",
-  "dependencies": {
-    "@angular/common": "^21.2.0",
-    "@angular/compiler": "^21.2.0",
-    "@angular/core": "^21.2.0",
-    "@angular/forms": "^21.2.0",
-    "@angular/platform-browser": "^21.2.0",
-    "@angular/router": "^21.2.0",
-    "rxjs": "~7.8.0",
-    "tslib": "^2.3.0"
-  },
-  "devDependencies": {
-    "@angular/build": "^21.2.2",
-    "@angular/cli": "^21.2.2",
-    "@angular/compiler-cli": "^21.2.0",
-    "jsdom": "^28.0.0",
-    "prettier": "^3.8.1",
-    "typescript": "~5.9.2",
-    "vitest": "^4.0.8"
-  }
+    "name": "app-module165-monorepo",
+    "version": "0.0.0",
+    "private": true,
+    "packageManager": "npm@11.11.1",
+    "workspaces": [
+        "apps/frontend",
+        "apps/backend"
+    ],
+    "scripts": {
+        "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
+        "start:frontend": "npm run start --workspace=apps/frontend",
+        "start:backend": "npm run dev --workspace=apps/backend",
+        "build": "npm run build:frontend && npm run build:backend",
+        "build:frontend": "npm run build --workspace=apps/frontend",
+        "build:backend": "npm run build --workspace=apps/backend",
+        "test": "npm run test --workspace=apps/frontend",
+        "format": "prettier --write \"**/*.{ts,html,scss}\" --ignore-path .prettierignore"
+    },
+    "devDependencies": {
+        "prettier": "^3.8.1"
+    },
+    "dependencies": {
+        "concurrently": "^9.2.1"
+    }
 }

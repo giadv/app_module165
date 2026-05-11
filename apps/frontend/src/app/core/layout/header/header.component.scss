@@ -1,0 +1,18 @@
+:host {
+    z-index: 1000;
+    flex-shrink: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem;
+    background-color: var(--mat-sys-surface);
+    border-bottom: 1px solid var(--mat-sys-on-surface);
+
+    #title {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+}

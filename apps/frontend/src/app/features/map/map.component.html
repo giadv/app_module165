@@ -1,0 +1,39 @@
+﻿<div id="popup-container">
+    @if (popupContent()) {
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{ popupContent()!.name }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>{{ popupContent()!.value }}</mat-card-content>
+        </mat-card>
+    }
+</div>
+<div id="year-selector">
+    <mat-form-field>
+        <mat-label>Year</mat-label>
+        <mat-select [formField]="form">
+            @for (year of YEARS; track $index) {
+                <mat-option [value]="year">{{ year }}</mat-option>
+            }
+        </mat-select>
+    </mat-form-field>
+</div>
+<div id="map"></div>
+<div id="legend">
+    <div class="legend-item"><span class="legend-color" style="background:#f7daef"></span> ≥ 7.0 - Low pollution</div>
+    <div class="legend-item"><span class="legend-color" style="background:#eec0d9"></span> 6.5 – 7.0</div>
+    <div class="legend-item"><span class="legend-color" style="background:#e39fc2"></span> 6.0 – 6.5</div>
+    <div class="legend-item"><span class="legend-color" style="background:#d97fa9"></span> 5.5 – 6.0</div>
+    <div class="legend-item"><span class="legend-color" style="background:#ce5f90"></span> 5.0 – 5.5</div>
+    <div class="legend-item"><span class="legend-color" style="background:#c43f77"></span> 4.5 – 5.0</div>
+    <div class="legend-item"><span class="legend-color" style="background:#b9205e"></span> 4.0 – 4.5</div>
+    <div class="legend-item"><span class="legend-color" style="background:#ad003f"></span> 3.5 – 4.0</div>
+    <div class="legend-item"><span class="legend-color" style="background:#a00026"></span> &lt; 3.5 - Highly polluted</div>
+    <div class="legend-item"><span class="legend-color" style="background:#8f8f8f"></span> No data</div>
+</div>
+
+@if (isLoading()) {
+    <div class="spinner-overlay">
+        <mat-spinner></mat-spinner>
+    </div>
+}

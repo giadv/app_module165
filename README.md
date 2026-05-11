@@ -1,59 +1,81 @@
-# AppModule165
+# Light Pollution Visualizer
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.2.
+Application de visualisation de la pollution lumineuse mondiale, composée d'un frontend Angular et d'un backend Express/MongoDB.
 
-## Development server
+## Prérequis
 
-To start a local development server, run:
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
+- Une instance [MongoDB](https://www.mongodb.com/) accessible (locale ou cloud)
 
-```bash
-ng serve
-```
+## Installation
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Cloner le dépôt puis installer toutes les dépendances depuis la racine :
 
 ```bash
-ng generate component component-name
+git clone <url-du-repo>
+cd app_module165
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Configuration
+
+Créer un fichier `.env` à la racine du projet :
+
+```env
+MONGO_URI=mongodb://localhost:27017/i165
+PORT=3000
+```
+
+| Variable    | Description                              | Valeur par défaut               |
+|-------------|------------------------------------------|---------------------------------|
+| `MONGO_URI` | URI de connexion MongoDB                 | `mongodb://localhost:27017/i165` |
+| `PORT`      | Port d'écoute du serveur backend         | `3000`                           |
+
+## Lancer le projet
+
+### Développement (frontend + backend simultanément)
 
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+- Frontend Angular : [http://localhost:4200](http://localhost:4200)
+- Backend Express  : [http://localhost:3000](http://localhost:3000)
 
-To build the project run:
+### Lancer séparément
 
 ```bash
-ng build
+# Backend uniquement
+npm run start:backend
+
+# Frontend uniquement
+npm run start:frontend
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Structure du projet
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
+```
+app_module165/
+├── apps/
+│   ├── backend/        # API Express + Mongoose
+│   │   └── src/
+│   │       ├── index.ts
+│   │       ├── models/
+│   │       └── routes/
+│   └── frontend/       # Application Angular
+│       └── src/
+│           └── app/
+│               ├── core/       # Layout, services
+│               ├── features/   # Map, Board, Timeline
+│               └── shared/     # Modèles partagés
+├── .env                # Variables d'environnement (à créer)
+└── package.json        # Scripts racine (npm workspaces)
 ```
 
-## Running end-to-end tests
+## API
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+| Méthode | Endpoint                | Description                                      |
+|---------|-------------------------|--------------------------------------------------|
+| GET     | `/api/health`           | Vérifie que le serveur est opérationnel          |
+| GET     | `/api/light-pollution`  | Retourne la moyenne de LimitingMag par pays/année |

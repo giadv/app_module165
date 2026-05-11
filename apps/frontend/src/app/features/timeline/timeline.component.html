@@ -1,0 +1,45 @@
+<div id="timeline-value">{{ value() }}</div>
+<mat-slider showTickMarks [min]="MIN_YEAR" [max]="MAX_YEAR" step="1">
+    <input matSliderThumb [value]="value()" #thumb (input)="value.set(thumb.valueAsNumber)" />
+</mat-slider>
+
+<div id="tables">
+    <table mat-table [dataSource]="topDataSource()">
+        <ng-container [matColumnDef]="COLUMNS[0]">
+            <th mat-header-cell *matHeaderCellDef>No.</th>
+            <td mat-cell *matCellDef="let element">{{ element.no }}</td>
+        </ng-container>
+
+        <ng-container [matColumnDef]="COLUMNS[1]">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>country</th>
+            <td mat-cell *matCellDef="let element">{{ element.country }}</td>
+        </ng-container>
+
+        <ng-container [matColumnDef]="COLUMNS[2]">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>value</th>
+            <td mat-cell *matCellDef="let element">{{ element.value }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="COLUMNS; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: COLUMNS"></tr>
+    </table>
+    <table mat-table [dataSource]="bottomDataSource()">
+        <ng-container [matColumnDef]="COLUMNS[0]">
+            <th mat-header-cell *matHeaderCellDef>No.</th>
+            <td mat-cell *matCellDef="let element">{{ element.no }}</td>
+        </ng-container>
+
+        <ng-container [matColumnDef]="COLUMNS[1]">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>country</th>
+            <td mat-cell *matCellDef="let element">{{ element.country }}</td>
+        </ng-container>
+
+        <ng-container [matColumnDef]="COLUMNS[2]">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>value</th>
+            <td mat-cell *matCellDef="let element">{{ element.value }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="COLUMNS; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: COLUMNS"></tr>
+    </table>
+</div>
