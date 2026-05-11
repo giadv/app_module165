@@ -15,4 +15,8 @@ const lightPollutionSchema = new Schema<ILightPollution>(
     { strict: false },
 );
 
-export const LightPollutionModel = model<ILightPollution>('LightPollution', lightPollutionSchema);
+export const LightPollutionModel = model<ILightPollution>(
+    'LightPollution',
+    lightPollutionSchema,
+    'open_data',
+);
