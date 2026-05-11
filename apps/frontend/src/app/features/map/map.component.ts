@@ -170,7 +170,7 @@ export class MapComponent implements AfterViewInit {
 
         const usaEntries = this.filteredData().filter((item) => this.isUSA(item.country));
         if (usaEntries.length === 0) return null;
-        
+
         const avg = usaEntries.reduce((sum, item) => sum + item.value, 0) / usaEntries.length;
         return parseFloat(avg.toFixed(2));
     }

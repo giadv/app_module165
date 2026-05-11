@@ -37,7 +37,7 @@ Chaque vue permet de filtrer par année et d’obtenir des détails sur chaque p
 Cloner le dépôt puis installer toutes les dépendances depuis la racine :
 
 ```bash
-git clone <url-du-repo>
+git clone https://www.github.com/giadv/app_module165.git
 cd app_module165
 npm install
 ```
