@@ -103,3 +103,24 @@ app_module165/
 |---------|-------------------------|--------------------------------------------------|
 | GET     | `/api/health`           | Vérifie que le serveur est opérationnel          |
 | GET     | `/api/light-pollution`  | Retourne la moyenne de LimitingMag par pays/année |
+
+
+### GET /api/light-pollution
+
+Comme discuté lors du cours, nous n'avons qu'une seule requête GET pour récupérer les données de pollution lumineuse, qui sont ensuite utilisées dans les différentes vues (carte, tableau, frise). Nous utilisons différentes méthodes d'agrégation MongoDB pour préparer les données :
+
+#### Match
+
+La requête filtre les données pour garder les pays et les années non nulles ainsi que les valeurs positives de LimitingMag.
+
+#### Group
+
+Elle agrège les résultats pour calculer la moyenne de LimitingMag par pays et par année. 
+
+#### Project
+
+Elle fait également une projection pour ne retourner que les champs nécessaires (pays, année, moyenne de LimitingMag).
+
+#### Sort
+
+Elle trie les résultats par pays et par année.
