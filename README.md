@@ -44,17 +44,17 @@ npm install
 
 ## Configuration
 
-Créer un fichier `.env` à la racine du projet :
+Adaptez le fichier `.env` à la racine du projet si besoin, en fonction de votre configuration MongoDB et du port souhaité pour le backend:
 
 ```env
-MONGO_URI=mongodb://localhost:27017/i165
+MONGO_URI=mongodb://user:password@localhost:27017/database_name
 PORT=3000
 ```
 
-| Variable    | Description                              | Valeur par défaut               |
-|-------------|------------------------------------------|---------------------------------|
-| `MONGO_URI` | URI de connexion MongoDB                 | `mongodb://localhost:27017/i165` |
-| `PORT`      | Port d'écoute du serveur backend         | `3000`                           |
+| Variable    | Description                              | 
+|-------------|------------------------------------------|
+| `MONGO_URI` | URI de connexion MongoDB                 |
+| `PORT`      | Port d'écoute du serveur backend         |
 
 ## Lancer le projet
 
